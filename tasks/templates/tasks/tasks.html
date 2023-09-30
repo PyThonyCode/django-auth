@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>PAGE TASKS</h1>
+{% for t in tasks %}
+
+<ul>
+    <li>
+        <a href="{% url 'task_detail' t.id %}">
+            {% if t.important %}
+            <strong>{{ t.title }}</strong>
+            {% else %}
+            <h1>{{ t.title }}</h1>
+            {% endif %}
+        </a>
+        <p>{{ t.description }}</p>
+        <p>{{ t.user.username }}</p>
+        <p>{{ t.important }}</p>
+        <p>{{ t.datecompleted|date:'M j Y:i' }}</p>
+    </li>
+</ul>
+{% endfor %}
+{% endblock %}

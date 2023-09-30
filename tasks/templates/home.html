@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container py-5">
+    <section class="card card-body" style="background-color: rgb(174, 94,  129, 0.5);">
+        <h1 class=" text-center" style="font-weight: bold; color: white; font-size: 60px;">Django App</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor perferendis quod nihil natus, laborum vero
+            quaerat
+            veritatis illum rem officiis saepe, harum quibusdam praesentium similique eum. Beatae quod corrupti, et
+            eligendi
+            maiores praesentium, quos ratione doloremque voluptatem officia, deserunt delectus.</p>
+
+        <div class="text-center">
+            <a class="btn btn-light" href="{% url 'signin_page' %}">Signin</a>
+            <a class="btn btn-dark" href="{% url 'signup_page' %}">Signup</a>
+        </div>
+
+    </section>
+</main>
+
+{% endblock %}

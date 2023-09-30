@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Crud Aplication</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kavoon&display=swap" rel="stylesheet">
+</head>
+<body style="background-color: rgb(245,241,69);">
+    <nav class="navbar navbar-expand-lg" style="background-color: rgb(255, 255, 255,0.55); max-height: 5em;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home_page' %}" style="display: flex;">
+                <img src="{% static 'image/logo.png' %}" alt="iep_nazareno" style="width: 5em;">
+                <h1 style="font-size: 0.8em; padding: 28px 0 0 5px; font-family: 'Kavoon'; color: rgb(174,94, 129);">
+                    CAMPUS <p>VIRTUAL
+                    </p>
+                </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="{% url 'home_page' %}" class="nav-link active">Home</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{% url 'task_page' %}" class="nav-link active">Tareas pendientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'task_completed' %}" class="nav-link active">Tareas realizadas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'create_tasks' %}" class="nav-link active">Crear Tarea</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'logout_page' %}" class="nav-link active">Cerrar sesión</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'signup_page' %}" class="nav-link active">Registrar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'signin_page' %} " class="nav-link active">Ingresar</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

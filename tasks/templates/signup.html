@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-5 offset-md-4 py-5">
+            <form action="{% url 'signup_page' %}" method="POST" class="card card-body col-md-9"
+                style="background-color: rgb(255, 255, 255, 0.5);">
+                <h1 class="text-center">Signup</h1>
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" name="username" id="username"
+                        placeholder="Ingresar nombre de usuario"
+                        style="background-color: rgb(174, 94, 129,0.26); border-color: rgb(174, 94, 129,0.7);">
+                </div>
+                <div class="mb-3">
+                    <label for="password1">Password:</label>
+                    <input type="password" class="form-control" name="password1" id="password1"
+                        placeholder="Escribe una contraseña"
+                        style="background-color: rgb(174, 94, 129,0.26); border-color: rgb(174, 94, 129,0.7);">
+                </div>
+                <div class="mb-3">
+                    <label for="passwor2">Confirmar password:</label>
+                    <input type="password" class="form-control" name="password2" id="password2"
+                        placeholder="Confirma tu contraseña"
+                        style="background-color: rgb(174, 94, 129,0.26); border-color: rgb(174, 94, 129,0.7);">
+                </div>
+                <div class=" text-center">
+                    <button class="btn col-md-4"
+                        style="background-color: rgb(174, 94, 129); color: white; font-weight: bold;">
+                        Registrarse
+                    </button>
+                </div>
+
+                {{ error }}
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}
